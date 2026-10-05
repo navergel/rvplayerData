@@ -1,0 +1,31 @@
+This script will fetch RVPlayer data (CPU, memory, disk, PIDs) for longevity tests. The output is printed in output.csv file.
+
+Script setup:
+1. copy files to a folder on test machine (ie:  C:\Temp\rvplayerData\)
+2. close/delete any previous result csv file in folder
+
+Scheduled task Setup
+1.Launch Task Scheduler
+2. create folder under "stask scheduler library"
+3. right click folder and enable all task history
+4. create task
+5. GeneralTab- user account: <admin user>
+               select "Run whether user is logged on or not"
+               select "Run with highest privileges"
+			   configure for: Windows10
+6. TriggersTab- Begin task: On a schedule 
+                set OneTime and set start time
+                repeat task as often as you like (1hr) for a duration of indefinately
+                set an expiration date
+		select enabled
+7. ActionsTab- 	Action: start a program
+                Program/Script: runps.bat
+                agrument: <blank>
+                StartIn: C:\Temp\rvplayerData\     //set to whatever folder the bat file in
+//After you save the task, it will ask for user credentials. (if login prompt fails after saving tast, may have to be <machineName>\<user>)
+
+
+//Note: make sure to not have any open instances of the result csv file while task is running, this may cause task to fail.
+				
+				
+			   

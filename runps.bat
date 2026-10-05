@@ -1,0 +1,1 @@
+c:\Windows\System32\WindowsPowerShell\v1.0\PowerShell.exe -ExecutionPolicy Bypass -File "rvplayerData.ps1"
